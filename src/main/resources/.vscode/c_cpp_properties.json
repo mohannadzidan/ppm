@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Windows",
+            "includePath": [
+                "${workspaceFolder}",
+                "#xc8Path#/pic/include/*"
+            ],
+            "forcedInclude": [
+                "#XC8Path#/pic/include/proc/#chip#.h"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "#xc8Path#/include/*",
+                    "#xc8Path#/pic/include/legacy/*"
+                ],
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "cStandard": "c99",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

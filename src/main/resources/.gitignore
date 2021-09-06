@@ -1,0 +1,11 @@
+## ignore compiled source
+build/
+dist/
+
+## ignore generated files
+**/nbproject/Makefile-*
+**/nbproject/Package-*
+
+
+## usually u would like to ignore .vscode/ too
+## .vscode/
