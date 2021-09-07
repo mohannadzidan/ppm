@@ -65,8 +65,8 @@ public class PpmBuild extends PpmCommand implements Runnable {
                 getWorkingDirectory().writeXml("nbproject/configurations.xml", configurationsDocument);
                 Console.actionSuccess("write", "nbproject/configurations.xml");
                 // execute prjMakefilesGenerator.bat
-                Console.info("running prjMakefilesGenerator.bat...");
-                if (execute(config.getMkGeneratorPath() + " -v " + getWorkingDirectory().getPath()) != 0) {
+                Console.info("running prjMakefilesGenerator.jar...");
+                if (execute(config.getMkGeneratorPath() + " -v \"" + getWorkingDirectory().getPath()+"\"") != 0) {
                     Console.error("prjMakefilesGenerator failed!");
                 }
             } else {
@@ -74,10 +74,9 @@ public class PpmBuild extends PpmCommand implements Runnable {
             }
             // generate directory
             requiredDependencies.forEach(dependency -> {
-                var dependencyRelativePath = Paths.get(getWorkingDirectory().getPath()).relativize(Paths.get(dependency));
                 try {
-                    Files.createParentDirs(new File(getWorkingDirectory().getPath() + "/build/default/production/" + dependencyRelativePath.toString()));
-                    Files.createParentDirs(new File(getWorkingDirectory().getPath() + "/build/default/debug/" + dependencyRelativePath.toString()));
+                    Files.createParentDirs(new File(getWorkingDirectory().getPath() + "/build/default/production/" + dependency));
+                    Files.createParentDirs(new File(getWorkingDirectory().getPath() + "/build/default/debug/" + dependency));
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
